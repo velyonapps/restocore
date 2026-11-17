@@ -202,7 +202,11 @@
       .contacto-info { position: static; }
       .formulario, .contacto-info { padding: 20px; }
       h1 { font-size: 34px; }
-      nav a:not(.boton) { display: none; }
+      /* Celular: el menú pasa a una segunda fila que se desliza de lado (antes se ocultaba). */
+      header .contenedor { flex-wrap: wrap; row-gap: 8px; height: auto; padding: 10px 0; }
+      nav { order: 3; width: 100%; overflow-x: auto; gap: 18px; padding-bottom: 6px; -webkit-overflow-scrolling: touch; }
+      nav a { white-space: nowrap; font-size: 15px; }
+      nav a.boton { padding: 8px 14px; }
       .marca small { display: none; }
       section { padding: 52px 0; }
     }
@@ -245,7 +249,7 @@
           <a class="boton claro" href="#como-trabaja">Ver cómo trabaja</a>
         </div>
         <p class="nota">Plan gratis sin fecha de vencimiento: hasta 2 salones, 3 personas y S/ 8,000 de ventas al mes. Boletas y facturas con el plan Pro. <a href="#planes">Ver condiciones</a></p>
-        <p class="nota" style="margin-top: 4px;">Para Windows 10 y 11 · <span class="version-texto">Última versión</span> · Instalación en 2 minutos</p>
+        <p class="nota" style="margin-top: 4px;">Para Windows 10 y 11 · <span class="version-texto">Última versión</span> · Se instala solo, con un asistente paso a paso</p>
       </div>
       <img class="captura" src="img/salon.jpg" alt="Salón de RestoCore con mesas libres, ocupadas y una que pidió la cuenta" width="1400" height="715">
     </div>
@@ -282,6 +286,8 @@
       <p class="sub">Hecho para el ritmo del salón a la hora punta y para un dueño que quiere saber cuánto vendió sin pelearse con la computadora.</p>
       <div class="rejilla">
         <div class="tarjeta"><div class="icono">🪑</div><h3>Salón con mesas</h3><p>Tus salones y mesas tal como están en el local. Colores por estado y cuánto lleva cada mesa esperando.</p></div>
+        <div class="tarjeta"><div class="icono">📱</div><h3>El mozo con su celular</h3><p>Con el Pro, el mozo toma el pedido en su celular por el Wi-Fi del local y lo manda a cocina sin ir a la caja. Entra con su PIN.</p></div>
+        <div class="tarjeta"><div class="icono">🖥️</div><h3>Segunda caja y cocina</h3><p>Otra PC del local se conecta a la caja principal con un código: una segunda caja o la pantalla de cocina, con la misma carta y las mismas mesas.</p></div>
         <div class="tarjeta"><div class="icono">🧑‍🍳</div><h3>Comandas a cocina</h3><p>Lo que se pide sale a cocina al instante, con observaciones como «sin cebolla». Nada se pierde entre el mozo y la olla.</p></div>
         <div class="tarjeta"><div class="icono">🍽️</div><h3>Opciones de platos</h3><p>Término, acompañamiento, extras con precio. Defines las opciones una vez y la carta las pregunta sola.</p></div>
         <div class="tarjeta"><div class="icono">📺</div><h3>Cocina en pantalla</h3><p>Un monitor en la cocina reemplaza el papel: comandas nuevas, en preparación y listas, con alerta cuando se demoran.</p></div>
@@ -290,7 +296,7 @@
         <div class="tarjeta"><div class="icono">🥡</div><h3>Para llevar con envases</h3><p>Pones cuánto cobras de envase por plato y la app lo suma solo en cada pedido para llevar; al cobrar, la caja lo ajusta si hace falta.</p></div>
         <div class="tarjeta"><div class="icono">📋</div><h3>Menú del día</h3><p>Cargas el menú de hoy con cuántos platos hay; cuando se acaban, la carta lo avisa antes de que el mozo lo ofrezca.</p></div>
         <div class="tarjeta"><div class="icono">🏛️</div><h3>Boletas con IGV de restaurante</h3><p>Con el plan Pro emites boletas y facturas SUNAT con el IGV reducido del 10.5 % para platos y el 18 % para bebidas, sin que tengas que calcular nada.</p></div>
-        <div class="tarjeta"><div class="icono">📶</div><h3>Sin internet</h3><p>Todo queda en tu PC con respaldo diario. Las boletas se envían a SUNAT cuando vuelve la conexión. Pulsa F1 y pregunta como hablas.</p></div>
+        <div class="tarjeta"><div class="icono">📶</div><h3>Sin internet</h3><p>Todo queda en tu PC con respaldo diario. Las boletas se envían a SUNAT cuando vuelve la conexión. Pulsa F1 y busca la ayuda por tema.</p></div>
       </div>
     </div>
   </section>
@@ -309,7 +315,7 @@
             <li>Opciones de platos, menú del día y cocina en pantalla</li>
             <li>Dividir la cuenta, propinas por mozo, cierre de caja y respaldos</li>
             <li>Mostrador y para llevar, con envases por plato</li>
-            <li>Ayuda con los temas del manual (F1)</li>
+            <li>Ayuda dentro del programa: tecla F1 y buscas por tema</li>
             <li>Hasta 2 salones</li>
             <li>Ventas hasta S/ 8,000 al mes</li>
             <li>Hasta 3 personas con PIN</li>
@@ -327,8 +333,9 @@
             <li>Salones, ventas y personas sin límite</li>
             <li>Asistente de ayuda: pregunta con tus palabras, sin internet</li>
             <li>Soporte directo por WhatsApp</li>
-            <li class="pronto">Mozo desde el celular por la Wi-Fi del local (pronto)</li>
-            <li class="pronto">Pantalla de cocina en tablet, recetas e insumos, delivery (pronto)</li>
+            <li>Mozo desde el celular por la Wi-Fi del local</li>
+            <li>Segunda caja y pantalla de cocina en otra PC del local</li>
+            <li class="pronto">Recetas e insumos, delivery (pronto)</li>
           </ul>
           <a class="boton primario" href="#contacto" data-tipo="pro">Quiero el plan Pro</a>
         </div>
@@ -367,7 +374,7 @@
             <li>Carga tu carta (o impórtala desde Excel) y empieza a atender.</li>
           </ol>
           <p style="margin: 18px 0 0;"><a class="boton primario descargar-exe" href="https://github.com/velyonapps/restocore/releases/latest/download/VelyonRestoCore-win-Setup.exe">Descargar gratis</a></p>
-          <p style="margin: 14px 0 0; font-size: 15px; color: var(--text-muted);">Trae una pollería de ejemplo para que pruebes el salón, la cocina y el cobro antes de cargar tu carta. El <a href="#contacto" data-tipo="manual">manual de uso</a> te lo enviamos al correo.</p>
+          <p style="margin: 14px 0 0; font-size: 15px; color: var(--text-muted);">El asistente te deja listo el salón con tus mesas en unos minutos; la carta la cargas a mano o desde un Excel. El <a href="#contacto" data-tipo="manual">manual de uso</a> te lo enviamos al correo.</p>
         </div>
         <div class="tarjeta">
           <h3 style="margin-top: 0;">Datos del instalador</h3>
@@ -467,7 +474,7 @@
             <div class="campos">
               <label class="campo"><span class="rotulo">Es un…</span>
                 <select name="clase"><option>Error</option><option>Sugerencia</option><option>Pregunta</option></select></label>
-              <label class="campo"><span class="rotulo">Versión de RestoCore <em>Gestión → Mi plan</em></span><input name="version" placeholder="0.4.0"></label>
+              <label class="campo"><span class="rotulo">Versión de RestoCore <em>Gestión → Mi plan</em></span><input name="version" placeholder="0.5.0"></label>
             </div>
           </div>
 
